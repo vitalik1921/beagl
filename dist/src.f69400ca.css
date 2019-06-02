@@ -37,6 +37,28 @@
   font-size: 23.6px;
   line-height: 46px;
 }
+._full-page_15dab {
+  margin-top: 200px;
+}
+
+._container_15dab {
+  width: 900px;
+}
+
+div._content_15dab {
+  padding-left: 20px;
+}
+
+._buttons_15dab {
+  margin-top: 20px;
+  padding-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 /*!
  * 
  * antd v3.19.1

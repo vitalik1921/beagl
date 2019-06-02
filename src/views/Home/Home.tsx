@@ -1,9 +1,11 @@
 import React from 'react';
-import { Button } from 'antd';
+import { inject, observer } from 'mobx-react';
 import { useFormatMessage } from '@comparaonline/react-intl-hooks';
+import { Button } from 'antd';
+
 import styles from './styles.scss';
 
-const Home = () => {
+const Home = ({ routing }: any) => {
   const i18n = useFormatMessage();
 
   return (
@@ -19,7 +21,7 @@ const Home = () => {
         />
         <Button
           className={styles['home-animation-button']}
-          href="/cv-steps"
+          onClick={() => routing.history.push('steps')}
         >
           {i18n('home.create_cv')}
         </Button>
@@ -28,4 +30,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default inject('routing')(observer(Home));

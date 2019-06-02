@@ -1,24 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Home /> View component matches snapshot 1`] = `
-<div
-  className="full-page ant-row-flex ant-row-flex-center ant-row-flex-middle"
->
-  <div>
-    <img
-      alt="Hello"
-      src="/img/logo.svg"
-    />
-    <span />
-    <Button
-      block={false}
-      ghost={false}
-      href="/cv-steps"
-      htmlType="button"
-      loading={false}
-    >
-      home.create_cv
-    </Button>
-  </div>
-</div>
+<o
+  forwardRef={null}
+/>
 `;
