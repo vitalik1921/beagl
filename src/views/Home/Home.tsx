@@ -3,7 +3,6 @@ import { Button } from 'antd';
 import { useFormatMessage } from '@comparaonline/react-intl-hooks';
 import styles from './styles.scss';
 
-
 const Home = () => {
   const i18n = useFormatMessage();
 
@@ -27,6 +26,6 @@ const Home = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

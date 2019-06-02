@@ -3564,11 +3564,6 @@ gud@^1.0.0:
   resolved "https://registry.yarnpkg.com/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
   integrity sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==
 
-hahaha@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/hahaha/-/hahaha-1.0.0.tgz#2487f6242e350741cfb4d4282d92812c1014414b"
-  integrity sha1-JIf2JC41B0HPtNQoLZKBLBAUQUs=
-
 hammerjs@^2.0.8:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
@@ -5437,7 +5432,7 @@ mkdirp@0.x, mkdirp@0.x.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp
   dependencies:
     minimist "0.0.8"
 
-mobx-react-lite@^1.4.0:
+mobx-react-lite@1.4.0, mobx-react-lite@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-1.4.0.tgz#193beb5fdddf17ae61542f65ff951d84db402351"
   integrity sha512-5xCuus+QITQpzKOjAOIQ/YxNhOl/En+PlNJF+5QU4Qxn9gnNMJBbweAdEW3HnuVQbfqDYEUnkGs5hmkIIStehg==
@@ -5447,7 +5442,14 @@ mobx-react-router@^4.0.7:
   resolved "https://registry.yarnpkg.com/mobx-react-router/-/mobx-react-router-4.0.7.tgz#d248a0e0525049f0e37e94f2fb1ab09563be4c35"
   integrity sha512-x7eza70EimFyvF0VPyj5X2MYo9jksy61UVwz5ERXWnXVE911XRTL/V2kXiX7fvVtMHzp5m2q/kxBoti9uNixEw==
 
-mobx@^5.9.4:
+mobx-react@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-6.0.2.tgz#f8926c5915e794bc6bfe5914129e8eece1556591"
+  integrity sha512-73YoOji8qtR7mFAyGDqzC+IN2z0wCKbMZmkUjo/6r9W7a1eJueiEgkWvwWZ0peGAanhMuY+RugRvX0njoKV4ng==
+  dependencies:
+    mobx-react-lite "1.4.0"
+
+"mobx@^4.0.0 || ^5.0.0":
   version "5.9.4"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.9.4.tgz#1dee92aba33f67b7baeeb679e3bd376a12e55812"
   integrity sha512-L9JjTX2rtQUAhCIgnHokfntNOsF14uioT9LqStf6Mya+16j56ZBe21E8Y9V59tfr2aH2kLQPD10qtCJXBuTAxw==
@@ -7429,7 +7431,7 @@ react-test-renderer@^16.0.0-0:
     react-is "^16.8.6"
     scheduler "^0.13.6"
 
-react@^16.8.6:
+react@^16.8.0:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
