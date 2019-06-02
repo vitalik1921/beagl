@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Steps /> View component matches snapshot 1`] = `
+<o
+  forwardRef={null}
+/>
+`;
