@@ -12,7 +12,7 @@
 		"format": "prettier \"src/**\" --write",
 		"__format:debug": "prettier \"src/**\" --list-different",
 		"lint": "tslint --format stylish --project tsconfig.json",
-		"test": "jest",
+		"test": "jest --verbose false",
 		"test:coverage": "jest --coverage",
 		"test:watch": "jest --watch",
 		"surge": "surge"
