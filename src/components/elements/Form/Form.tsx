@@ -1,6 +1,6 @@
-import React, { ChangeEventHandler, ReactElement, useState, ElementType, SyntheticEvent, ChangeEvent } from 'react';
-import { curry } from 'ramda';
-import { Input, Form as AntdForm } from 'antd';
+import React, { useState } from 'react';
+import { curry, pathOr } from 'ramda';
+import { Form as AntdForm, Input } from 'antd';
 
 type FieldValue = {
   value: any,
@@ -11,13 +11,16 @@ type FieldValue = {
 
 type FieldProps = {
   id: string,
+  component: any,
   value?: any,
   label?: string,
-  required?: boolean,
   help?: string,
-  min?: string,
-  max?: string,
-  validator?: Function,
+  min?: number,
+  max?: number,
+  validators: Function[],
+  prefixCls?: string,
+  formatter?: Function,
+  options?: any,
 }
 
 type FieldValues = {
@@ -28,13 +31,23 @@ const FormProvider = React.createContext<any>(() => ({}));
 const { Item } = AntdForm;
 
 export const InputField = (props: FieldProps) => {
+  const [errorMessage, setErrorMessage] = useState('');
+
   const updateField = (setField: (field: FieldValue) => void, ) => (event: any) => {
+    const eventValue = pathOr(event, ['target', 'value'], event);
+    const errors = props.validators
+      .map((validator) => validator(eventValue))
+      .filter((val) => !!val);
+    const isValid = errors.length === 0;
+
+    if (!isValid) {
+      setErrorMessage(errors[0]);
+    }
+
     setField({
-      value: event.target.value,
+      value: eventValue,
       isTouched: true,
-      isValid: props.validator
-        ? props.validator(event.target.value)
-        : true,
+      isValid: isValid,
     });
   }
 
@@ -42,17 +55,23 @@ export const InputField = (props: FieldProps) => {
     <FormProvider.Consumer>
       {(getField) => {
         const field = getField(props.id, props.value);
+        const InputComponent = props.component;
+        const showHelpers = !field.isValid && field.isTouched;
         return (
           <Item
+            prefixCls={props.prefixCls}
             label={props.label}
-            required={props.required}
-            help={props.help}
-            validateStatus="warning"
+            help={showHelpers ? errorMessage || props.help : props.help}
+            validateStatus={showHelpers ? 'error' : ''}
           >
-            <Input
+            <InputComponent
               id={props.id}
               value={field.value === null ? props.value : field.value}
               onChange={updateField(field.onChange)}
+              min={props.min}
+              max={props.max}
+              formatter={props.formatter}
+              options={props.options}
             />
           </Item>
         );
@@ -61,19 +80,25 @@ export const InputField = (props: FieldProps) => {
   );
 }
 
+InputField.defaultProps = {
+  validators: [],
+  component: Input,
+}
+
 type FormProps = {
+  layout: 'horizontal' | 'vertical' | 'inline',
   children: JSX.Element[] | JSX.Element | string,
 };
 
-export const Form = ({ children }: FormProps) => {
+export const Form = ({ layout, children }: FormProps) => {
   const [fields, setFields] = useState<FieldValues>({});
 
   const setField = curry((name: string, field: FieldValue) => {
-    fields[name] = {...fields[name], ...field};
+    fields[name] = { ...fields[name], ...field };
     setFields({ ...fields });
   });
 
-  const createField = (name: string, value: any): FieldValue => {
+  const createField = (name: string, value: any = null): FieldValue => {
     return {
       value,
       onChange: setField(name),
@@ -90,10 +115,26 @@ export const Form = ({ children }: FormProps) => {
   }
 
   return (
-    <FormProvider.Provider value={getField}>
-      {children}
-    </FormProvider.Provider>
+    <AntdForm
+      layout={layout}
+      labelCol={{
+        xs: { span: 24 },
+        sm: { span: 8 },
+      }}
+      wrapperCol={{
+        xs: { span: 24 },
+        sm: { span: 16 },
+      }}
+    >
+      <FormProvider.Provider value={getField}>
+        {children}
+      </FormProvider.Provider>
+    </AntdForm>
   );
 }
+
+Form.defaultProps = {
+  layout: 'horizontal',
+};
 
 export default { InputField, Form };
