@@ -6,7 +6,7 @@ import en from "react-intl/locale-data/en";
 
 import messages from "beagl/i18n";
 import Home from "beagl/views/Home";
-import Steps from "beagl/views/Steps";
+import Wizard from "beagl/views/Wizard";
 
 addLocaleData([...en]);
 
@@ -14,8 +14,8 @@ const App = () => (
   <IntlProvider locale="en" messages={messages["en"]}>
     <InjectIntlContext>
       <Switch>
-        <Route exact path="/" render={() => <Home />} />
-        <Route exact path="/steps" render={() => <Steps />} />
+        <Route exact path="/" component={Home} />
+        <Route path="/steps" component={Wizard} />
       </Switch>
     </InjectIntlContext>
   </IntlProvider>

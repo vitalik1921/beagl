@@ -1,3 +1,13 @@
 {
-  "home.create_cv": "Create successful CV"
+  "home.create_cv": "Create successful CV",
+  "steps.profile.title": "steps.profile.title",
+  "steps.profile.description": "steps.profile.description",
+  "steps.experience.title": "steps.experience.title",
+  "steps.experience.description": "steps.experience.description",
+  "steps.skills.title": "steps.skills.title",
+  "steps.skills.description": "steps.skills.description",
+  "steps.contacts.title": "steps.contacts.title",
+  "steps.contacts.description": "steps.contacts.description",
+  "button.prev": "button.prev",
+  "button.next": "button.next"
 }

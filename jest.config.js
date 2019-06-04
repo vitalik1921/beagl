@@ -12,5 +12,6 @@ module.exports = {
     "\\.(css|less|sass|scss)$": "<rootDir>/tests/__mocks__/styleMock.ts",
     "\\.(gif|ttf|eot|svg)$": "<rootDir>/tests/__mocks__/fileMock.ts",
     "\\^(.*)$": "<rootDir>/tests/__mocks__/$1",
+    "^beagl(.*)$": "<rootDir>/src/$1"
   }
 };

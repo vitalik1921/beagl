@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Steps /> View component matches snapshot 1`] = `
+<div
+  className="full-page ant-row-flex ant-row-flex-center ant-row-flex-middle"
+>
+  <Row
+    gutter={0}
+    type="flex"
+  >
+    <Col
+      span={6}
+    >
+      <Steps
+        current={0}
+        direction="vertical"
+        size="small"
+      >
+        <Step
+          description="steps.profile.description"
+          title="steps.profile.title"
+        />
+        <Step
+          description="steps.experience.description"
+          title="steps.experience.title"
+        />
+        <Step
+          description="steps.skills.description"
+          title="steps.skills.title"
+        />
+        <Step
+          description="steps.contacts.description"
+          title="steps.contacts.title"
+        />
+      </Steps>
+      <div>
+        <Button
+          block={false}
+          disabled={true}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+          type="default"
+        >
+          <Icon
+            type="left"
+          />
+          button.prev
+        </Button>
+        <Button
+          block={false}
+          disabled={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+          type="primary"
+        >
+          button.next
+          <Icon
+            type="right"
+          />
+        </Button>
+      </div>
+    </Col>
+    <Col
+      span={18}
+    >
+      <Switch>
+        <Route
+          exact={true}
+          path="/steps"
+          render={[Function]}
+        />
+        <Route
+          path="/steps/experience"
+          render={[Function]}
+        />
+        <Route
+          path="/steps/skills"
+          render={[Function]}
+        />
+        <Route
+          path="/steps/contacts"
+          render={[Function]}
+        />
+      </Switch>
+    </Col>
+  </Row>
+</div>
+`;
