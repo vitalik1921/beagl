@@ -1,13 +1,18 @@
 {
-  "home.create_cv": "Create successful CV",
-  "steps.profile.title": "steps.profile.title",
-  "steps.profile.description": "steps.profile.description",
-  "steps.experience.title": "steps.experience.title",
-  "steps.experience.description": "steps.experience.description",
-  "steps.skills.title": "steps.skills.title",
-  "steps.skills.description": "steps.skills.description",
-  "steps.contacts.title": "steps.contacts.title",
-  "steps.contacts.description": "steps.contacts.description",
-  "button.prev": "button.prev",
-  "button.next": "button.next"
+  "home.creave_cv": "Create successful CV",
+  "steps.basic.title": "Basic info",
+  "steps.profile.description": "Short about you",
+  "steps.experience.title": "Experience",
+  "steps.experience.description": "Your career way",
+  "steps.skills.title": "Skills / Technologies",
+  "steps.skills.description": "List of skills and technologies",
+  "steps.contacts.title": "Contacts",
+  "steps.contacts.description": "Ways to communicate with you",
+  "profile.basic.position.label": "Desired position",
+  "profile.basic.salary.label": "Expected salary",
+  "profile.basic.location.label": "Your location",
+  "profile.basic.experience.label": "General experience (years)",
+  "profile.basic.englishLevel.label": "English level",
+  "profile.basic.typesOfEmployment.label": "Types of employment"
+
 }

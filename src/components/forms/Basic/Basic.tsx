@@ -13,6 +13,7 @@ import React, { ReactChildren } from "react";
 import { Form, InputField } from "beagl/components/elements/Form/Form";
 import { isInteger, isRequired } from "beagl/utils/validators";
 import useValidator from "beagl/components/hooks/useValidator/useValidator";
+import { useExperienceMarks, useTypeOfEmployment } from "beagl/components/hooks/dictionaries/dictionaries";
 
 type props = {
   children: ReactChildren | String;
@@ -20,6 +21,7 @@ type props = {
 };
 
 const CheckboxGroup = Checkbox.Group;
+
 const formLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -40,18 +42,13 @@ const checkboxesLayout = {
     sm: { span: 24 }
   }
 };
-const experienceMarks = {
-  1: "1",
-  3: "3",
-  5: "5",
-  7: "7",
-  9: "9+"
-};
 
 export const Profile = (props: props) => {
   const i18n = useFormatMessage();
   const valIsRequired = useValidator(isRequired);
   const valIsInteger = useValidator(isInteger);
+  const experienceMarks = useExperienceMarks();
+  const typeOfEmployment = useTypeOfEmployment();
 
   return (
     <div>
@@ -59,21 +56,21 @@ export const Profile = (props: props) => {
         <InputField
           id="position"
           validators={[valIsRequired]}
-          label={i18n("profile.work.position.label")}
+          label={i18n("profile.basic.position.label")}
           help={i18n("profile.work.position.help")}
         />
         <InputField
           id="salary"
           component={InputNumber}
           validators={[valIsRequired, valIsInteger]}
-          label={i18n("profile.work.salary.label")}
+          label={i18n("profile.basic.salary.label")}
           help={i18n("profile.work.salary.help")}
           min={1}
           formatter={(val: number) =>
             `$ ${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
           }
         />
-        <AntdForm.Item label={i18n("education.location")}>
+        <AntdForm.Item label={i18n("profile.basic.location.label")}>
           <Row type="flex" gutter={10}>
             <Col span={12}>
               <InputField
@@ -97,7 +94,7 @@ export const Profile = (props: props) => {
           id="experience"
           component={Slider}
           validators={[valIsRequired]}
-          label={i18n("profile.work.experience.label")}
+          label={i18n("profile.basic.experience.label")}
           help={i18n("profile.work.experience.help")}
           min={1}
           max={9}
@@ -108,7 +105,7 @@ export const Profile = (props: props) => {
           id="englishLevel"
           component={Slider}
           validators={[valIsRequired]}
-          label={i18n("profile.work.englishLevel.label")}
+          label={i18n("profile.basic.englishLevel.label")}
           help={i18n("profile.work.englishLevel.help")}
           min={1}
           max={5}
@@ -117,12 +114,8 @@ export const Profile = (props: props) => {
         <InputField
           id="typesOfEmployment"
           component={CheckboxGroup}
-          label={i18n("profile.work.typesOfEmployment.label")}
-          options={[
-            { label: "Apple", value: "Apple" },
-            { label: "Pear", value: "Pear" },
-            { label: "Orange", value: "Orange" }
-          ]}
+          label={i18n("profile.basic.typesOfEmployment.label")}
+          options={typeOfEmployment}
         />
       </Form>
     </div>

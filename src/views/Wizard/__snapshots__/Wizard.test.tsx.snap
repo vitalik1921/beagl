@@ -18,7 +18,7 @@ exports[`<Steps /> View component matches snapshot 1`] = `
       >
         <Step
           description="steps.profile.description"
-          title="steps.profile.title"
+          title="steps.basic.title"
         />
         <Step
           description="steps.experience.description"

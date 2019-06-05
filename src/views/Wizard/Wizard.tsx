@@ -43,7 +43,7 @@ export const Wizard = ({ routing, match }: routing) => {
         <Col span={6}>
           <Steps direction="vertical" size="small" current={currentStep}>
             <Step
-              title={i18n("steps.profile.title")}
+              title={i18n("steps.basic.title")}
               description={i18n("steps.profile.description")}
             />
             <Step
