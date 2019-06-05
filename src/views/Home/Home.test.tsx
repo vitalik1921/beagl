@@ -17,8 +17,10 @@ describe("<Home /> View", () => {
 
   it("goes to the steps page after button click", () => {
     const mockedClick = jest.fn();
-    const wrapper = shallow(<Home routing={{ history: { push: mockedClick }}} />);
-    wrapper.find(Button).simulate('click');
+    const wrapper = shallow(
+      <Home routing={{ history: { push: mockedClick } }} />
+    );
+    wrapper.find(Button).simulate("click");
     expect(mockedClick).toBeCalled();
   });
 });

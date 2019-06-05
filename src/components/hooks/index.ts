@@ -1,3 +1,3 @@
-import useValidator from './useValidator/useValidator';
+import useValidator from "./useValidator/useValidator";
 
 export default { useValidator };

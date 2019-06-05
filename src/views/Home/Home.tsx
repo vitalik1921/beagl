@@ -19,7 +19,7 @@ export const Home = ({ routing }: any) => {
         <span className={styles["home-animation-separator"]} />
         <Button
           className={styles["home-animation-button"]}
-          onClick={() => (routing.history.push("steps"))}
+          onClick={() => routing.history.push("steps")}
         >
           {i18n("home.create_cv")}
         </Button>

@@ -5,16 +5,16 @@ import { inject, observer } from "mobx-react";
 import { Route, Switch, match } from "react-router-dom";
 import { RouterStore } from "mobx-react-router";
 
-import Basic from 'beagl/components/forms/Basic';
+import Basic from "beagl/components/forms/Basic";
 import styles from "./styles.scss";
 
-const stepsMap = ['', 'experience', 'skills', 'contacts'];
+const stepsMap = ["", "experience", "skills", "contacts"];
 const { Step } = Steps;
 
 type routing = {
-  routing: RouterStore,
-  match: match,
-}
+  routing: RouterStore;
+  match: match;
+};
 
 export const Wizard = ({ routing, match }: routing) => {
   const i18n = useFormatMessage();
@@ -26,18 +26,14 @@ export const Wizard = ({ routing, match }: routing) => {
   );
 
   const prevStep = () => {
-    setCurrentStep(currentStep > 0
-      ? currentStep - 1
-      : 0
-    );
-  }
+    setCurrentStep(currentStep > 0 ? currentStep - 1 : 0);
+  };
 
   const nextStep = () => {
-    setCurrentStep(currentStep < stepsMap.length - 1
-      ? currentStep + 1
-      : currentStep
+    setCurrentStep(
+      currentStep < stepsMap.length - 1 ? currentStep + 1 : currentStep
     );
-  }
+  };
 
   const onStepFinish = () => nextStep();
 
@@ -87,13 +83,7 @@ export const Wizard = ({ routing, match }: routing) => {
             <Route
               exact
               path="/steps"
-              render={
-                (props) => (
-                  <Basic onComplete={onStepFinish}>
-                    Profile
-                  </Basic>
-                )
-              }
+              render={props => <Basic onComplete={onStepFinish}>Profile</Basic>}
             />
             <Route
               path="/steps/experience"
